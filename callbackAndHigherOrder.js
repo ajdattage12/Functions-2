@@ -166,13 +166,9 @@ uniq (names, unique => {
 */
 
 // CODE HERE 
-const callback = names.forEach => {
-  console.log(`The item at index ${names} is ${index}`))
-}
 
 const each = (names, callback) =>{
-  return callback()
-  names.forEach(names, index)
+  names.forEach((name, index) => callback(name, index))
   }
 
 
@@ -184,8 +180,10 @@ const each = (names, callback) =>{
 */
 
 // CODE HERE
+each(names, (name, index) => {
+  console.log(`The item at index ${name} is ${index}`)
+})
 
-console.log(each (`The item at index ${[names]} is ${[0]}`))
 ////////// PROBLEM 7 //////////
 
 /*
@@ -218,15 +216,18 @@ var users = [
 
 // CODE HERE 
 
-
+const getUserById = (users, id, callback) =>{
+  let matchingUser = users.find(user => id === user.id);
+  callback (matchingUser)
+}
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// getUserById(users, '16t', user => {
-//   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
-// })
+getUserById(users, '16t', user => {
+  console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
+})
 
 ////////// CHALLENGE //////////
 
